@@ -1,0 +1,98 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+body {
+    font-family: 'Miriam Libre';
+    margin: 0vh;
+    background-color: rgb(242, 242, 242);
+}
+#primary-navigation {
+    position: sticky;
+    top: 0vh;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    height: 12.5vh;
+    width: 100vw;
+    border-radius: 5vh;
+}
+#sp-logo {
+    height: 7.5vh;
+    margin: auto;
+}
+#title {
+    height: 7.5vh;
+    margin: auto;
+    color: #fff;
+}
+.gh-logo {
+    height: 7.5vh;
+    margin: auto;
+    opacity: 1;
+    transition: opacity .5s;
+}
+.gh-logo:hover {
+    opacity: .75;
+}
+#rink {
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-items: center; 
+    display: flex;
+    height: 42.5vw;
+    width: 100vw;
+}
+#rows {
+    position: absolute;
+    z-index: 1;
+    display: block;
+}
+
+#columns {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+}
+#rows div {
+    width: 100vw;
+    height: .5vw;
+}
+#columns div {
+    height: 42.5vw;
+    width: .49751244vw;
+}
+#secondary-navigation {
+    display: flex;
+}
+#queens-shot {
+    background: rgb(63.75, 63.75, 63.75);
+    color: rgb(255, 255, 255);
+    margin: auto;
+    padding: 2.5vh 10vh;
+    border-radius: 5vh;
+    opacity: .25;
+}
+#queens-shot:hover {
+    cursor: pointer;
+}
+#opponent-shot {
+    background: rgb(63.75, 63.75, 63.75);
+    color: rgb(255, 255, 255);
+    margin: auto;
+    padding: 2.5vh 10vh;
+    border-radius: 5vh;
+    opacity: .25;
+}
+#opponent-shot:hover {
+    cursor: pointer;
+}
+#export {
+    background: rgb(63.75, 63.75, 63.75);
+    color: rgb(255, 255, 255);
+    margin: auto;
+    padding: 2.5vh 10vh;
+    border-radius: 5vh;
+    opacity: .25;
+}
+#export:hover {
+    cursor: pointer;
+}
