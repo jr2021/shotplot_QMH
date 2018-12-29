@@ -1,71 +1,70 @@
 $(document).ready(function() {
-    localStorage.setItem('csv',''); // clear localStorage
-    $('body').fadeIn(500); // fade in body
-    setTimeout(displayOverlay, 0);
-	setTimeout(dismissOverlay, 7500);
-	$("#overlay").click(dismissOverlay);
+    localStorage.setItem("csv","");
+    $("body").fadeIn(250);
+    $("#overlay").fadeIn(250);
+	$("#overlay").click(function () {
+        $("#overlay").fadeOut(250);
+    });
 });
 
-function dismissOverlay() {
-	$("#overlay").fadeOut(500); // fade out overlay
-}
-
-function displayOverlay() {
-	$("#overlay").fadeIn(500); // fade in overlay
-}
-
 function point(axis, value) {
-    localStorage.setItem(axis, value); // store point
-}
-
-function postTeam() {
-    $('#queens-shot').fadeTo(500, '.25'); // fade out queen's
-    $('#opponent-shot').fadeTo(500, '.25'); // fade out opponent
-    $('#export').fadeTo(500, '1'); // fade in export
-    $('#rink').fadeTo(500, '1'); // fade in rink
-}
-
-function postPoints() {
-    $('#export').fadeTo(500, '.25'); // fade out export
-    $('#rink').fadeTo(500, '.25'); // fade out rink
-    $('#queens-shot').fadeTo(500, '1'); // fade in queen's
-    $('#opponent-shot').fadeTo(500, '1'); // fade in opponent
+    localStorage.setItem(axis, value);
 }
 
 function points(xAxis, yAxis) {
-    localStorage.setItem('csv', localStorage.getItem(xAxis)+','+localStorage.getItem(yAxis)+'</p>'+localStorage.getItem('csv')); // store points
+    var x = localStorage.getItem("x");
+    var y = localStorage.getItem("y");
+    var csv = localStorage.getItem("csv");
+    var closing = "</div>"
+    var newVal = x + "," + y + csv + closing;
+    localStorage.setItem("csv", newVal);
+}
+
+function postTeam() {
+    $("#queens-shot, #opponent-shot").fadeTo(250, ".25");
+    $("#export, #rink").fadeTo(250, "1");
+}
+
+function postPoints() {
+    $("#export, #rink").fadeTo(250, ".25");
+    $("#queens-shot, #opponent-shot").fadeTo(250, "1");
 }
 
 function flip(axis) {
-    if (axis === 'x') { 
-        $('#columns').css('z-index', '1'); // columns back
-        $('#rows').css('z-index', '2'); // rows forward
+    if (axis === "x") { 
+        $("#columns").css("z-index", "1");
+        $("#rows").css("z-index", "2");
     }
     else {
-        $('#rows').css('z-index', '1'); // rows back 
-        $('#columns').css('z-index', '2'); // columns forward
+        $("#rows").css("z-index", "1");
+        $("#columns").css("z-index", "2");
     }
 }
 
 function team(team) {
-    localStorage.setItem('csv', '<p>'+team+','+localStorage.getItem('csv')); // store team
+    var opening = "<div>";
+    var csv = localStorage.getItem("csv");
+    localStorage.setItem("csv", opening + team + "," + csv);
     postTeam();
 }
 
 function display() {
-    var newWindow = window.open(); // open window
-    newWindow.document.write('<title>data</title>') // write title
-    newWindow.document.write('<p>team,x,y</p>') // write label
-    newWindow.document.write(localStorage.getItem('csv')); // write data
+    var title = "<title>shotplot_QMH | data</title>"
+    var header = "<div>team,x,y</div>";
+    var csv = localStorage.getItem("csv");
+    var newWindow = window.open();
+    newWindow.document.write(title);
+    newWindow.document.write(header);
+    newWindow.document.write(csv);
 }
 
 function main(axis, value) {
-    if (axis == 'x') {
+    if (axis == "x") {
         point(axis, value);
     }
     else {
         point(axis, value);
-        points('x','y');
+        points("x","y");
         postPoints();
     }
     flip(axis);
