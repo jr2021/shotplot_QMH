@@ -1,0 +1,144 @@
+/**********************************************************
+Scrollbar
+***********************************************************/
+::-webkit-scrollbar { 
+    display: none; 
+}
+/**********************************************************
+Body
+***********************************************************/
+body {
+    font-family: 'Miriam Libre';
+    margin: 0vh;
+    background-color: rgb(242, 242, 242);
+    display: none;
+}
+/**********************************************************
+Primary Navigation
+***********************************************************/
+#primary-navigation {
+    background-color: rgb(242, 242, 242);
+    color: rgba(0, 0, 0, .75);
+    display: flex;
+    height: 13.5vh;
+    width: 100vw;
+}
+.sp-logo {
+    height: 5vh;
+    margin: auto;
+    opacity: 1;
+    transition: opacity .25s;
+}
+.sp-logo:hover {
+    opacity: .75;
+}
+#title {
+    height: 7.5vh;
+    margin: auto;
+}
+.gh-logo {
+    height: 5vh;
+    margin: auto;
+    opacity: 1;
+    transition: opacity .25s;
+}
+.gh-logo:hover {
+    opacity: .75;
+}
+/**********************************************************
+Main Content
+***********************************************************/
+#rink {
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-items: center; 
+    display: flex;
+    height: 42.5vw;
+    width: 100vw;
+    border-radius: 12vh;
+}
+#rows {
+    position: absolute;
+    z-index: 1;
+    display: block;
+}
+
+#columns {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+}
+#rows div {
+    width: 100vw;
+    height: .5vw;
+}
+#columns div {
+    height: 42.5vw;
+    width: .49751244vw;
+}
+/**********************************************************
+Secondary Navigation
+***********************************************************/
+#secondary-navigation {
+    background-color: rgb(242, 242, 242);
+    color: rgba(0, 0, 0, .75);
+    display: flex;
+    height: 13vh;
+    width: 100vw;
+}
+#queens-shot {
+    margin: auto;
+    transition: opacity .25s;
+}
+#queens-shot:hover {
+    cursor: pointer;
+    opacity: .5625;
+}
+#opponent-shot {
+    margin: auto;
+    transition: opacity .25s;
+}
+#opponent-shot:hover {
+    cursor: pointer;
+    opacity: .5625;
+}
+#export {
+    margin: auto;
+    transition: opacity .25s;
+}
+#export:hover {
+    cursor: pointer;
+    opacity: .5625;
+}
+/**********************************************************
+Overlay
+***********************************************************/
+#overlay {
+	background-color: rgba(0, 0, 0, 0.75);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    display: none;
+    z-index: 3;
+}
+#overlay-text {
+	background-color: #fff;
+	border-radius: 8px;
+	padding: 20px;
+	margin: 20px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(calc(-50% - 20px), calc(-50% - 20px));
+	min-width: 150px;
+    max-width: 400px;
+    z-index: 3;
+}
+#overlay-text h1,p {
+    text-align: center;
+}
+#overlay-text ol { 
+    text-align: left;
+}
