@@ -55,7 +55,6 @@ Main Content
     display: flex;
     height: 42.5vw;
     width: 100vw;
-    border-radius: 12vh;
 }
 #rows {
     position: absolute;
