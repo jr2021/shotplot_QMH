@@ -11,7 +11,7 @@ function point(axis, value) {
     localStorage.setItem(axis, value);
 }
 
-function points(xAxis, yAxis) {
+function points() {
     var x = localStorage.getItem("x");
     var y = localStorage.getItem("y");
     var csv = localStorage.getItem("csv");
@@ -20,14 +20,21 @@ function points(xAxis, yAxis) {
     localStorage.setItem("csv", newVal);
 }
 
-function postTeam() {
-    $("#queens-shot, #opponent-shot").fadeTo(250, ".25");
-    $("#export, #rink").fadeTo(250, "1");
-}
-
 function postPoints() {
     $("#export, #rink").fadeTo(250, ".25");
     $("#queens-shot, #opponent-shot").fadeTo(250, "1");
+}
+
+function team(team) {
+    var opening = "<div>";
+    var csv = localStorage.getItem("csv");
+    localStorage.setItem("csv", opening + team + "," + csv);
+    postTeam();
+}
+
+function postTeam() {
+    $("#queens-shot, #opponent-shot").fadeTo(250, ".25");
+    $("#export, #rink").fadeTo(250, "1");
 }
 
 function flip(axis) {
@@ -39,13 +46,6 @@ function flip(axis) {
         $("#rows").css("z-index", "1");
         $("#columns").css("z-index", "2");
     }
-}
-
-function team(team) {
-    var opening = "<div>";
-    var csv = localStorage.getItem("csv");
-    localStorage.setItem("csv", opening + team + "," + csv);
-    postTeam();
 }
 
 function display() {
@@ -64,7 +64,7 @@ function main(axis, value) {
     }
     else {
         point(axis, value);
-        points("x","y");
+        points();
         postPoints();
     }
     flip(axis);
